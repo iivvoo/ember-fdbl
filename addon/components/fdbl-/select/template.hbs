@@ -1,0 +1,16 @@
+  {{#if label}}
+  <label class="{{labelClass}}" for={{name}}>{{label}}</label>
+  {{/if}}
+  <div class="{{inputClass}}">
+    <select {{action "change" on='change'}} class="{{inputClassProp}}">
+        {{#each options as |option|}}
+            <option value="{{option.value}}" selected={{eq option.value current}}>{{t option.label}}</option>
+        {{/each}}
+    </select>
+
+  </div>
+  {{#if (v-get model property 'isInvalid')}}
+    <div class="help-block">
+      {{v-get model property 'message'}}
+    </div>
+  {{/if}}
