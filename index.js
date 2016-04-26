@@ -2,5 +2,6 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-fdbl'
+  name: 'ember-fdbl',
+  isDevelopingAddon: function() { return true; }
 };
