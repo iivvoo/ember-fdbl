@@ -1,8 +1,10 @@
 import Ember from 'ember';
 import BaseComponent from '../base';
+import layout from './template';
 
 export default BaseComponent.extend({
     value: null,
+    layout: layout,
 
     saveValue: function(value) {
         /* value may be undefined if nothing entered. In that case,

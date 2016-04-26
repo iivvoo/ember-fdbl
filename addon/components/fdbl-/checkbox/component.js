@@ -1,5 +1,7 @@
 import BaseComponent from '../base';
+import layout from './template';
 
 export default BaseComponent.extend({
-    type: 'checkbox'
+    type: 'checkbox',
+    layout: layout
 });

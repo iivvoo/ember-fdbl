@@ -1,8 +1,10 @@
 import Ember from 'ember';
 import BaseComponent from '../base';
+import layout from './template';
 
 export default BaseComponent.extend({
     options: [],
+    layout: layout,
 
     current: Ember.computed('model', 'property', function() {
         return this.get(`model.${this.property}`);
