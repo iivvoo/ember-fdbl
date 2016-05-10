@@ -1,12 +1,14 @@
-  {{#if label}}
+{{#if label}}
   <label class="{{labelClass}}" for={{name}}>{{label}}</label>
-  {{/if}}
-  <div class="{{inputClass}}">
+{{/if}}
+<div class="{{inputClass}}">
   {{input type=type value=(mut (get model property))
-    placeholder=placeholder class=inputClassProp type=type size=size}}
-  </div>
+    placeholder=placeholder class=inputClassProp type=type
+    step=step min=min size=size}}
+
   {{#if (v-get model property 'isInvalid')}}
     <div class="help-block">
       {{v-get model property 'message'}}
     </div>
   {{/if}}
+</div>
