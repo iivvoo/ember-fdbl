@@ -1,13 +1,14 @@
-  {{#if label}}
+{{#if label}}
   <label class="{{labelClass}}" for={{name}}>{{label}}</label>
-  {{/if}}
-  <div class="{{inputClass}}">
-    {{date-range-picker start=value singleDatePicker=true
-                        showDropdowns=true format="DD/MM/YYYY"
-                        applyAction=(action saveValue) }}
-  </div>
+{{/if}}
+<div class="{{inputClass}}">
+  {{date-range-picker start=value singleDatePicker=true
+                      showDropdowns=true format="DD/MM/YYYY"
+                      applyAction=(action saveValue) }}
+
   {{#if (v-get model property 'isInvalid')}}
     <div class="help-block">
       {{v-get model property 'message'}}
     </div>
   {{/if}}
+</div>
