@@ -9,6 +9,7 @@
   </select>
 
 </div>
+{{yield}}
 {{#if (v-get model property 'isInvalid')}}
   <div class="help-block">
     {{v-get model property 'message'}}
