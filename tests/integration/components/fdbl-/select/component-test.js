@@ -1,24 +1,18 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
+import { model } from '../../../../utils';
+
 moduleForComponent('fdbl-/select', 'Integration | Component | fdbl /select', {
-  integration: true
+  integration: true,
+  beforeEach() {
+    this.set('model', model);
+  }
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{fdbl-/select}}`);
+  this.render(hbs`{{fdbl-/select model=model}}`);
 
   assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#fdbl-/select}}
-      template block text
-    {{/fdbl-/select}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });
