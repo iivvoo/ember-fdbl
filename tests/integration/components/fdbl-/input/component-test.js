@@ -1,19 +1,10 @@
-import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-const model = Ember.Object.create({
-  id: 1,
-  name: ''
-});
-
-const eq = Ember.Helper.helper(function(params) {
-  console.log('param 1 ' + params[0] + ' ' + params[1]);
-  if(params[0] === params[1]) {
-    return true;
-  }
-  return false;
-});
+import {
+  model,
+  eq
+} from '../../../../utils';
 
 moduleForComponent('fdbl-/input', 'Integration | Component | fdbl /input', {
   integration: true,
