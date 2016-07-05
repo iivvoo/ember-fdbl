@@ -6,9 +6,9 @@
     {{#each relation_aware_options as |option|}}
       <option value="{{option.value}}" selected={{eq option.value current}}>
         {{#if translate }}
-            {{t option.label}}
+          {{t option.label}}
         {{else}}
-            {{option.label}}
+          {{option.label}}
         {{/if}}
       </option>
     {{/each}}

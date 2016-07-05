@@ -38,7 +38,7 @@ export default BaseComponent.extend({
 
             if(this.get("relations")) {
                 for(let o of options) {
-                    if(o.value.get("id") == selection) {
+                    if(o.value.get("id") === selection) {
                         selection = o.value;
                         break;
                     }
