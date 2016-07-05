@@ -25,7 +25,7 @@ export default BaseComponent.extend({
         }
         let res = Ember.A();
 
-        this.get("options").forEach((v, i) => {
+        this.get("options").forEach(v => {
             res.pushObject({value: v.value.get("id"), label:v.label});
         });
         return res;
