@@ -6,10 +6,10 @@
       name=name
       rows=rows
       cols=cols}}
+    {{#if (v-get model property 'isInvalid')}}
+      <div class="help-block">
+        {{v-get model property 'message'}}
+      </div>
+    {{/if}}
   </div>
-  {{#if (v-get model property 'isInvalid')}}
-    <div class="help-block">
-      {{v-get model property 'message'}}
-    </div>
-  {{/if}}
 </div>
