@@ -58,3 +58,20 @@ test('it selects the right ember object', function(assert) {
 
   assert.equal(this.$("option:selected").attr("value").trim(), 24);
 });
+
+test('it handles property changes', function(assert) {
+  let v1 = Ember.Object.create({id:24});
+  let v2 = Ember.Object.create({id:42});
+  this.set('v', v1);
+
+  this.set('options', [{value: v2, label:'label'},
+                       {value: v1, label: 'other'}]);
+
+  this.set('model', Ember.Object.create({selection: this.get("v")}));
+
+  this.render(hbs`{{fdbl-/select model=model property="selection" options=options translate=false relations=true}}`);
+
+  this.set('model.selection', this.get('options.lastObject.value'));
+
+  assert.equal(this.$("option:selected").attr("value").trim(), 42);
+});

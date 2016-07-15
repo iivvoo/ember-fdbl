@@ -7,15 +7,27 @@ export default BaseComponent.extend({
     layout: layout,
     relations: false,
     translate: true,
+    model: null,
+    property: null,
 
+    // https://spin.atomicobject.com/2015/08/03/ember-computed-properties/
+    trampoline: Ember.computed('model', 'property', function() {
+        let property = this.get("property");
 
-    current: Ember.computed('model', 'property', function() {
-        if(this.get('relations')) {
-            return this.get(`model.${this.property}.id`);
+        if(property) {
+            if(this.get('relations')) {
+                property = `${property}.id`;
+            }
+
+            return Ember.Object.extend({
+                value: Ember.computed.alias(`model.${property}`)
+            }).create({model:this.get("model")});
         }
-
-        return this.get(`model.${this.property}`);
+        return Ember.Object.create({});
     }),
+
+    current: Ember.computed.alias('trampoline.value'),
+
 
     relation_aware_options: Ember.computed('options.[]', function() {
         // if we support relations return value id's in stead of the
