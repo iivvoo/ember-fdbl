@@ -2,7 +2,7 @@
   <label class="{{labelClass}}" for={{name}}>{{label}}</label>
 {{/if}}
 <div class="{{inputClass}}">
-  {{input type=type value=(mut (get model property))
+  {{input type=type name=property value=(mut (get model property))
     placeholder=placeholder class=inputClassProp type=type
     step=step min=min size=size}}
 

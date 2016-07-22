@@ -2,7 +2,7 @@
   <label class="{{labelClass}}" for={{name}}>{{label}}</label>
 {{/if}}
 <div class="{{inputClass}}">
-  {{input type=type checked=(mut (get model property))}}
+  {{input type=type name=property checked=(mut (get model property))}}
 </div>
 {{#if (v-get model property 'isInvalid')}}
   <div class="help-block">

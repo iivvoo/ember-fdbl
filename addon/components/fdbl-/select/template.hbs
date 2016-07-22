@@ -2,7 +2,7 @@
   <label class="{{labelClass}}" for={{name}}>{{label}}</label>
 {{/if}}
 <div class="{{inputClass}}">
-  <select {{action "change" on='change'}} class="{{inputClassProp}}">
+  <select {{action "change" on='change'}} name=property class="{{inputClassProp}}">
     {{#each relation_aware_options as |option|}}
       <option value="{{option.value}}" selected={{eq option.value current}}>
         {{#if translate }}
