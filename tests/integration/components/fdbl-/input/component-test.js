@@ -39,12 +39,12 @@ test('LabelPosition is left', function(assert) {
    * one called label is also given a label should appear on the left.
    */
 
-  this.set('labelPostition', 'left');
+  this.set('labelPosition', 'left');
 
   this.render(hbs`{{fdbl-/input model=model
                                 property=property
                                 label=label
-                                labelPostition=labelPostition}}`);
+                                labelPosition=labelPosition}}`);
 
   assert.equal(this.$('label').length, 1);
 
@@ -57,12 +57,12 @@ test('LabelPosition is right', function(assert) {
    * one called label is also given a label should appear on the right.
    */
 
-  this.set('labelPostition', 'right');
+  this.set('labelPosition', 'right');
 
   this.render(hbs`{{fdbl-/input model=model
                                 property=property
                                 label=label
-                                labelPostition=labelPostition}}`);
+                                labelPosition=labelPosition}}`);
 
 
   assert.equal(this.$('label').length, 1);
