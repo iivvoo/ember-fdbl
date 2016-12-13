@@ -4,7 +4,7 @@
 <div class="{{inputClass}}">
   {{input type=type name=property checked=(mut (get model property))}}
 </div>
-{{#if (v-get model property 'isInvalid')}}
+{{#if showErrorMessage}}
   <div class="help-block">
     {{v-get model property 'message'}}
   </div>
