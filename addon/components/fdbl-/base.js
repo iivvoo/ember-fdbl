@@ -11,16 +11,29 @@ export default Ember.Component.extend({
     inputClass: 'col-sm-10',
     controlClass: '',
     hasError: false,
+    validation: null,
+    showValidations: false,
+    didValidate: false,
+
+    notValidating: Ember.computed.not('validation.isValidating').readOnly(),
+    hasContent: Ember.computed.notEmpty('value').readOnly(),
+    hasWarnings: Ember.computed.notEmpty('validation.warnings').readOnly(),
+    isValid: Ember.computed.and('hasContent', 'validation.isTruelyValid').readOnly(),
+    shouldDisplayValidations: Ember.computed.or('showValidations', 'didValidate', 'hasContent').readOnly(),
+
+    showErrorMessage: Ember.computed.and('shouldDisplayValidations', 'validation.isInvalid').readOnly(),
 
     inputClassProp: Ember.computed('controlClass', function() {
         return `form-control ${this.controlClass}`;
     }),
 
-    initObserver: Ember.on('didReceiveAttrs', function() {
-        let key = `validations.attrs.${this.property}.isValid`;
-        this.get('model').addObserver(key, this, 'updateClass');
-        this.updateClass(); // make sure it's initialized properly
-    }),
+    init() {
+      this._super(...arguments);
+      let property = this.get('property');
+
+      Ember.defineProperty(this, 'validation', Ember.computed.readOnly(`model.validations.attrs.${property}`));
+      Ember.defineProperty(this, 'value', Ember.computed.alias(`model.${property}`));
+    },
 
     willDestroy: function() {
         this._super();
@@ -34,5 +47,10 @@ export default Ember.Component.extend({
         let isValid = this.get(key);
 
         this.set('hasError', isValid === false);
+    },
+
+    focusOut() {
+      this._super(...arguments);
+      this.set('showValidations', true);
     }
 });
