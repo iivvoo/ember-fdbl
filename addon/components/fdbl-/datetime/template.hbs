@@ -6,7 +6,7 @@
                       showDropdowns=true format="DD/MM/YYYY"
                       applyAction=(action saveValue) }}
 
-  {{#if (v-get model property 'isInvalid')}}
+  {{#if showErrorMessage}}
     <div class="help-block">
       {{v-get model property 'message'}}
     </div>
