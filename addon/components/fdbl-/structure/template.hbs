@@ -1,0 +1,14 @@
+{{#if (eq labelPosition 'left')}}
+  <label class="{{labelClass}}" for={{name}}>{{label}}</label>
+{{/if}}
+<div class="{{inputClass}}">
+  {{yield}}
+  {{#if showErrorMessage}}
+    <div class="help-block">
+      {{v-get model property 'message'}}
+    </div>
+  {{/if}}
+</div>
+{{#if (eq labelPosition 'right')}}
+  <label class="{{labelClass}}" for={{name}}>{{label}}</label>
+{{/if}}

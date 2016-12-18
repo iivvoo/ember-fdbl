@@ -1,16 +1,7 @@
-{{#if (eq labelPosition 'left')}}
-  <label class="{{labelClass}}" for={{name}}>{{label}}</label>
-{{/if}}
-<div class="{{inputClass}}">
+{{#component structure model=model property=property inputClass=inputClass
+labelClass=labelClass labelPosition=labelPosition
+name=name label=label}}
   {{input type=type name=property value=(mut (get model property))
     placeholder=placeholder class=inputClassProp type=type
     step=step min=min size=size}}
-  {{#if showErrorMessage}}
-    <div class="help-block">
-      {{v-get model property 'message'}}
-    </div>
-  {{/if}}
-</div>
-{{#if (eq labelPosition 'right')}}
-  <label class="{{labelClass}}" for={{name}}>{{label}}</label>
-{{/if}}
+{{/component}}
