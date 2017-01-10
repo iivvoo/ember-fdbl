@@ -1,0 +1,20 @@
+{{#if label}}
+  <label class="{{labelClass}}" for={{name}}>{{label}}</label>
+{{/if}}
+<div class="{{inputClass}}">
+  {{#power-select
+    selected=selected
+    renderInPlace=true
+    options=options
+    onchange=(action onchange)
+    as |item|
+  }}
+  {{yield item}}
+  {{/power-select}}
+</div>
+{{yield}}
+{{#if showErrorMessage}}
+  <div class="help-block">
+    {{v-get model property 'message'}}
+  </div>
+{{/if}}
