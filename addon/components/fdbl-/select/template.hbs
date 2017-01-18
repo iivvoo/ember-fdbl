@@ -22,10 +22,9 @@
       </option>
     {{/each}}
   </select>
+  {{#if showErrorMessage}}
+    <div class="help-block">
+      {{v-get model property 'message'}}
+    </div>
+  {{/if}}
 </div>
-{{yield}}
-{{#if showErrorMessage}}
-  <div class="help-block">
-    {{v-get model property 'message'}}
-  </div>
-{{/if}}
