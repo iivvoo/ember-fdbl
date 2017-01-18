@@ -3,6 +3,15 @@
 {{/if}}
 <div class="{{inputClass}}">
   <select {{action "change" on='change'}} name=property class="{{inputClassProp}}">
+    {{#if emptyDefault}}
+      <option disabled selected>
+        {{#if translate}}
+          {{t emptyDefaultMsg}}
+        {{else}}
+          {{emptyDefaultMsg}}
+        {{/if}}
+      </option>
+    {{/if}}
     {{#each relation_aware_options as |option|}}
       <option value="{{option.value}}" selected={{eq option.value current}}>
         {{#if translate }}

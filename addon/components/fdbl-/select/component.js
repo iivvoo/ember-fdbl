@@ -4,6 +4,7 @@ import layout from './template';
 
 export default BaseComponent.extend({
     options: [],
+    emptyDefault: false,
     layout: layout,
     relations: false,
     translate: true,
