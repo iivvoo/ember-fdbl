@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -6,16 +7,16 @@ moduleForComponent('fdbl-/daterangepicker', 'Integration | Component | fdbl /dat
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{fdbl-/daterangepicker}}`);
+  this.set('model', Ember.Object.create({'p':{}}));
+
+  this.render(hbs`{{fdbl-/daterangepicker model=model property='p'}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#fdbl-/daterangepicker}}
+    {{#fdbl-/daterangepicker model=model property='p'}}
       template block text
     {{/fdbl-/daterangepicker}}
   `);
