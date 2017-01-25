@@ -23,3 +23,13 @@ test('it renders', function(assert) {
 
   assert.equal(this.$().text().trim(), 'template block text');
 });
+
+test('it hides the builtin label tag', function(assert) {
+
+  this.set('model', Ember.Object.create({'p':{}}));
+
+  this.render(hbs`{{fdbl-/daterangepicker model=model property='p'}}`);
+
+  assert.equal(this.$("label").length, 1);
+
+});
