@@ -1,0 +1,22 @@
+
+{{#if label}}
+  <label class="{{labelClass}}" for={{name}}>{{label}}</label>
+{{/if}}
+<div class="{{inputClass}}">
+  {{date-range-picker
+    start=start
+    end=end
+    timePicker=timePicker
+    timePicker24Hour=timePicker24Hour
+    ranges=ranges
+    applyAction=(action applyAction)
+    hideAction=(action hideAction)
+    cancelAction=(action cancelAction)
+  }}
+</div>
+{{yield}}
+{{#if showErrorMessage}}
+  <div class="help-block">
+    {{v-get model property 'message'}}
+  </div>
+{{/if}}

@@ -1,0 +1,1 @@
+export { default } from 'ember-fdbl/components/fdbl-/daterangepicker/component';
