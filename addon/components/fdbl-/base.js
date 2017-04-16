@@ -39,7 +39,9 @@ export default Ember.Component.extend({
         this._super();
 
         let key = `validations.attrs.${this.property}.isValid`;
-        this.get('model').removeObserver(key, this, 'updateClass');
+        if(this.get('model')) {
+            this.get('model').removeObserver(key, this, 'updateClass');
+        }
     },
 
     updateClass: function() {
